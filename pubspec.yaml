@@ -1,5 +1,5 @@
 name: cats
-description: A new Flutter project.
+description: Flutter application with api calls.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

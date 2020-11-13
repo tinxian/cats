@@ -96,12 +96,52 @@ class _MyHomePageState extends State<MyHomePage> {
       );
     }
 
+    var now = new DateTime.now();
+    var born = data[i]['dob'];
+    Duration difference = now.difference(born);
+    var years = difference.inDays / 365;
+    print(years);
+    var age = years.toString();
+
     return Container(
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Text(data[i]['name'].toString()),
-          Text(data[i]['dob'].toString()),
-          Image.network(data[i]['image'].toString()),
+          Container(
+            width: 150,
+            padding: EdgeInsets.only(bottom: 10),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      data[i]['name'].toString(),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      age,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(data[i]['breed'].toString()),
+              ],
+            ),
+          ),
+          Container(
+            width: 150,
+            padding: EdgeInsets.only(bottom: 10),
+            child: Image.network(
+              data[i]['image'].toString(),
+              width: 150,
+            ),
+          ),
         ],
       ),
     );
